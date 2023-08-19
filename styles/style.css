@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+body {
+  min-height: 100vh;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(185, 41%, 84%);
+}
+
+main .logo-container img {
+  margin: 0 auto;
+  width: 80px;
+}
+main .container {
+  background-color: hsl(0, 0%, 100%);
+  margin: 4rem 0;
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  border-radius: 20px;
+}
+main .container .left-content {
+  color: hsl(186, 14%, 43%);
+}
+main .container .left-content .bill-content {
+  margin-bottom: 2.5rem;
+}
+main .container .left-content .bill-content .bill {
+  font-size: 1rem;
+  color: hsl(186, 14%, 43%);
+  margin-bottom: 0.5rem;
+}
+main .container .left-content .bill-content .bill-input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  background: url(/images/icon-dollar.svg) no-repeat left hsl(189, 41%, 97%);
+  background-position-x: 0.5rem;
+  text-align: right;
+  padding: 0 0.5rem 0 0;
+  font-size: 1.4rem;
+  color: hsl(183, 79%, 24%);
+  outline: none;
+}
+main .container .left-content .bill-content .bill-input::-moz-placeholder {
+  font-size: 1.2rem;
+  color: hsl(186, 14%, 43%);
+}
+main .container .left-content .bill-content .bill-input::placeholder {
+  font-size: 1.2rem;
+  color: hsl(186, 14%, 43%);
+}
+main .container .left-content .bill-content .bill-input:focus {
+  border: 1px solid hsl(172, 67%, 45%);
+}
+main .container .left-content .tip-content .buttons {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(2, 40px);
+  grid-gap: 15px;
+}
+main .container .left-content .tip-content .buttons button {
+  background-color: hsl(183, 100%, 15%);
+  border: none;
+  border-radius: 5px;
+  color: hsl(0, 0%, 100%);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+main .container .left-content .tip-content .buttons button:hover, main .container .left-content .tip-content .buttons button:focus {
+  color: hsl(183, 79%, 24%);
+  background-color: hsl(172, 67%, 45%);
+}
+main .container .left-content .tip-content .buttons input {
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  font-size: 1.2rem;
+  outline: none;
+}
+main .container .left-content .number-people-content {
+  margin-bottom: 2rem;
+}
+main .container .left-content .number-people-content .number-people {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+main .container .left-content .number-people-content .number-people .cant-zero {
+  display: none;
+  color: rgb(214, 131, 112);
+  font-size: 0.7rem;
+  text-align: right;
+}
+main .container .left-content .number-people-content .number-input {
+  margin-top: 0.5rem;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  background: url(/images/icon-person.svg) no-repeat left hsl(189, 41%, 97%);
+  background-position-x: 0.5rem;
+  text-align: right;
+  padding: 0 0.5rem 0 0;
+  font-size: 1.4rem;
+  color: hsl(183, 79%, 24%);
+  outline: none;
+}
+main .container .left-content .number-people-content .number-input::-moz-placeholder {
+  font-size: 1.2rem;
+  color: hsl(186, 14%, 43%);
+}
+main .container .left-content .number-people-content .number-input::placeholder {
+  font-size: 1.2rem;
+  color: hsl(186, 14%, 43%);
+}
+main .container .right-content {
+  background: hsl(183, 100%, 15%);
+  padding: 3rem 2rem 1rem 2rem;
+  border-radius: 15px;
+  width: 380px;
+}
+main .container .right-content .right-content-container .tip-amount, main .container .right-content .right-content-container .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .container .right-content .right-content-container .tip-amount span, main .container .right-content .right-content-container .total span {
+  color: hsl(0, 0%, 100%);
+}
+main .container .right-content .right-content-container .tip-amount .person, main .container .right-content .right-content-container .total .person {
+  color: hsl(184, 14%, 56%);
+}
+main .container .right-content .right-content-container .tip-amount #tip, main .container .right-content .right-content-container .total #tip, main .container .right-content .right-content-container .tip-amount #total, main .container .right-content .right-content-container .total #total {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: right;
+  font-size: 2rem;
+  width: 200px;
+  color: hsl(172, 67%, 45%);
+}
+main .container .right-content .right-content-container .tip-amount #tip::-moz-placeholder, main .container .right-content .right-content-container .total #tip::-moz-placeholder, main .container .right-content .right-content-container .tip-amount #total::-moz-placeholder, main .container .right-content .right-content-container .total #total::-moz-placeholder {
+  color: hsl(172, 67%, 45%);
+}
+main .container .right-content .right-content-container .tip-amount #tip::placeholder, main .container .right-content .right-content-container .total #tip::placeholder, main .container .right-content .right-content-container .tip-amount #total::placeholder, main .container .right-content .right-content-container .total #total::placeholder {
+  color: hsl(172, 67%, 45%);
+}
+main .container .right-content .right-content-container .total {
+  margin-top: 3rem;
+}
+main .container .right-content .right-content-container .reset-container {
+  text-align: center;
+  margin-top: 5rem;
+}
+main .container .right-content .right-content-container .reset-container .reset {
+  width: 90%;
+  cursor: pointer;
+  background-color: hsl(183, 79%, 24%);
+  border: none;
+  padding: 0.5rem;
+  color: hsl(183, 100%, 15%);
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+main .container .right-content .right-content-container .reset-container .reset:hover {
+  background-color: hsl(172, 67%, 45%);
+}
+
+@media screen and (max-width: 1000px) {
+  main .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  main .left-content .tip-content .buttons {
+    justify-content: center;
+  }
+}/*# sourceMappingURL=style.css.map */

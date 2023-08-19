@@ -1,0 +1,246 @@
+$strong-cyan: hsl(172, 67%, 45%);
+$very-dark-cyan: hsl(183, 100%, 15%);
+$dark-grayish-cyan: hsl(186, 14%, 43%);
+$grayish-cyan: hsl(184, 14%, 56%);
+$light-grayish-cyan: hsl(185, 41%, 84%);
+$very-light-grayish-cyan: hsl(189, 41%, 97%);
+$white: hsl(0, 0%, 100%);
+$dark-cyan: hsl(183, 79%, 24%);
+$red: rgb(214, 131, 112);
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+body{
+    min-height: 100vh;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $light-grayish-cyan;
+}
+
+main{
+    // max-width: 850px;
+
+    .logo-container{
+        img{
+            margin: 0 auto;
+            width: 80px;
+        }
+    }
+    
+    .container{
+        background-color: $white;
+        margin: 4rem 0;
+        display: flex;
+        padding: 2rem;
+        gap: 2rem;
+        border-radius: 20px;
+
+        .left-content{
+            color: $dark-grayish-cyan;
+
+            .bill-content{
+                margin-bottom: 2.5rem;
+
+                .bill{
+                    font-size: 1rem;
+                    color: $dark-grayish-cyan;
+                    margin-bottom: 0.5rem;
+                }
+
+                .bill-input{
+                    width: 100%;
+                    border: none;
+                    border-radius: 5px;
+                    height: 40px;
+                    background: url(/images/icon-dollar.svg) no-repeat left $very-light-grayish-cyan;
+                    background-position-x: 0.5rem;
+                    text-align: right;
+                    padding: 0 0.5rem 0 0;
+                    font-size: 1.4rem;
+                    color: $dark-cyan;
+                    outline: none;
+
+                    &::placeholder{
+                        font-size: 1.2rem;
+                        color: $dark-grayish-cyan;
+                    }
+
+                    &:focus{
+                        border: 1px solid $strong-cyan;
+                    }
+                }
+
+            }
+
+            .tip-content{
+                
+
+                .tip{
+
+                }
+
+                .buttons{
+                    margin-top: 0.5rem;
+                    display: grid;
+                    grid-template-columns: repeat(3, 100px);
+                    grid-template-rows: repeat(2, 40px);
+                    grid-gap: 15px;
+
+                    button{
+                        background-color: $very-dark-cyan;
+                        border: none;
+                        border-radius: 5px;
+                        color: $white;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+
+                        &:hover, &:focus{
+                            color: $dark-cyan;
+                            background-color: $strong-cyan;
+                        }
+                    }
+                    
+                    input{
+                        border: none;
+                        border-radius: 5px;
+                        text-align: center;
+                        background-color: $very-light-grayish-cyan;
+                        color: $very-dark-cyan;
+                        font-size: 1.2rem;
+                        outline: none;
+
+                    }
+                }
+            }
+
+            .number-people-content{
+                margin-bottom: 2rem;
+
+                .number-people{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+
+                    .cant-zero{
+                        display: none;
+                        color: $red;
+                        font-size: 0.7rem;
+                        text-align: right;
+                    }
+
+                }
+
+                .number-input{
+                    margin-top: 0.5rem;
+                    width: 100%;
+                    border: none;
+                    border-radius: 5px;
+                    height: 40px;
+                    background: url(/images/icon-person.svg) no-repeat left $very-light-grayish-cyan;
+                    background-position-x: 0.5rem;
+                    text-align: right;
+                    padding: 0 0.5rem 0 0;
+                    font-size: 1.4rem;
+                    color: $dark-cyan;
+                    outline: none;
+
+                    &::placeholder{
+                        font-size: 1.2rem;
+                        color: $dark-grayish-cyan;
+                    }
+                }
+            }
+        }
+
+        .right-content{
+            background: $very-dark-cyan;
+            padding: 3rem 2rem 1rem 2rem;
+            border-radius: 15px;
+            width: 380px;
+
+            .right-content-container{
+                .tip-amount{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    span{
+                        color: $white;
+                    }
+
+                    .person{
+                        color: $grayish-cyan;
+                    }
+
+                    #tip{
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        text-align: right;
+                        font-size: 2rem;
+                        width: 200px;
+                        color: $strong-cyan;
+
+                        &::placeholder{
+                            color: $strong-cyan;
+                        }
+                    }
+
+                    #total{
+                        @extend #tip;
+                    }
+                }
+
+                .total{
+                    margin-top: 3rem;
+                    @extend .tip-amount;
+
+                }
+
+                .reset-container{
+                    text-align: center;
+                    margin-top: 5rem;
+
+                    .reset{
+                        width: 90%;
+                        cursor: pointer;
+                        background-color: 
+                        $dark-cyan;
+                        border: none;
+                        padding: 0.5rem;
+                        color: $very-dark-cyan;
+                        border-radius: 5px;
+                        text-transform: uppercase;
+
+                        &:hover{
+                            background-color: $strong-cyan;
+                        }
+                    }
+                }
+               
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+   
+    main{
+
+        .container{
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .left-content{
+            .tip-content{
+                .buttons{
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
