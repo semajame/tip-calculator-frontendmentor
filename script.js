@@ -26,6 +26,11 @@ reset.onclick = function(){
     });
 }
 
+function removeTotal(){
+        tipvalue.value = null;
+        totalvalue.value = null;
+}
+
 function tip(number){
 
     let percent = number * billvalue.value;
@@ -49,31 +54,37 @@ function validateInput(input) {
   }
 
 five.onclick = function(){
+    removeTotal();
     let number = 5/100;
     tip(number);
 }
 
 ten.onclick = function(){
+    removeTotal();
     let number = 10/100;
     tip(number);
 }
 
 fifteen.onclick = function(){
+    removeTotal();
     let number = 15/100;
     tip(number);
 }
 
 twentyfive.onclick = function(){
+    removeTotal();
     let number = 25/100;
     tip(number);
 }
 
 fifty.onclick = function(){
+    removeTotal();
     let number = 50/100;
     tip(number);
 }
 
 custom.onchange = function(){
+    removeTotal();
     let number = custom.value/100;
     tip(number);
     error();
@@ -92,7 +103,6 @@ peoplevalue.addEventListener("input", ()=>{
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-    
     inputFields.forEach((input)=> {
         input.value = '';
     });
