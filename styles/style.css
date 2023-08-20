@@ -123,6 +123,7 @@ main .container .right-content {
   background: hsl(183, 100%, 15%);
   padding: 2rem 2rem 1rem 2rem;
   border-radius: 15px;
+  width: 350px;
 }
 main .container .right-content .right-content-container .tip-amount, main .container .right-content .right-content-container .total {
   display: flex;
@@ -178,10 +179,13 @@ main .container .right-content .right-content-container .reset-container .reset:
     flex-direction: column;
     gap: 2rem;
   }
-  main .left-content .tip-content .buttons {
+  main .container .left-content .tip-content .buttons {
     justify-content: center;
   }
-  main .right-content span {
+  main .container .right-content {
+    width: 100%;
+  }
+  main .container .right-content span {
     font-size: 0.925rem;
   }
 }/*# sourceMappingURL=style.css.map */
