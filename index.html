@@ -14,7 +14,7 @@
 <body>
   <main>
     <div class="logo-container">
-      <img src="/images/logo.svg" alt="Logo">
+      <img src="/images/logo.svg" alt="Logo Image">
     </div>
     <div class="container">
       <section class="left-content">
@@ -43,23 +43,23 @@
           </span>
 
           <div class="buttons">
-            <button class="five">
+            <button class="five" onclick="tip(5)">
               5%
             </button>
-            <button class="ten">
+            <button class="ten" onclick="tip(10)">
               10%
             </button>
-            <button class="fifteen">
+            <button class="fifteen" onclick="tip(15)">
               15%
             </button>
-            <button class="twenty-five">
+            <button class="twenty-five" onclick="tip(25)">
               25%
             </button>
-            <button class="fifty">
+            <button class="fifty" onclick="tip(50)">
               50%
             </button>
 
-            <input type="text" placeholder="Custom" class="custom">
+            <input type="text" placeholder="Custom" class="custom" onkeydown="customTip(custom)" onblur="customTip(custom)">
           </div>
         </div>
 
@@ -75,14 +75,20 @@
               Tip Amount <br>
               <span class="person">/ person</span>
             </span>
-            <input type="text" placeholder="$0.00" readonly id="tip">
+            <!-- <input type="text" placeholder="$0.00" readonly id="tip"> -->
+            <h2 id="tip" class="total-value">
+              $0.00
+            </h2>
           </div>
           <div class="total">
             <span>
               Total <br>
               <span class="person">/ person</span>
             </span>
-            <input type="text" placeholder="$0.00" readonly id="total">
+            <!-- <input type="text" placeholder="$0.00" readonly id="total"> -->
+            <h2 id="total" class="total-value">
+              $0.00
+            </h2>
           </div>
 
           <div class="reset-container">
