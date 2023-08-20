@@ -14,9 +14,8 @@ body{
     min-height: 100vh;
     font-family: 'Space Mono', monospace;
     font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     background-color: $light-grayish-cyan;
 }
 
@@ -85,7 +84,7 @@ main{
                 .buttons{
                     margin-top: 0.5rem;
                     display: grid;
-                    grid-template-columns: repeat(3, 100px);
+                    grid-template-columns: repeat(3, 30%);
                     grid-template-rows: repeat(2, 40px);
                     grid-gap: 15px;
 
@@ -157,9 +156,8 @@ main{
 
         .right-content{
             background: $very-dark-cyan;
-            padding: 3rem 2rem 1rem 2rem;
+            padding: 2rem 2rem 1rem 2rem;
             border-radius: 15px;
-            width: 380px;
 
             .right-content-container{
                 .tip-amount{
@@ -176,12 +174,8 @@ main{
                     }
 
                     #tip{
-                        background-color: transparent;
-                        border: none;
-                        outline: none;
                         text-align: right;
                         font-size: 2rem;
-                        width: 200px;
                         color: $strong-cyan;
 
                         &::placeholder{
@@ -226,10 +220,13 @@ main{
     }
 }
 
-@media screen and (max-width: 1000px) {
-   
-    main{
+@media screen and (max-width: 500px) {
+    body{
+        display: block;
+    }
 
+    main{
+        margin: 2rem 1rem;
         .container{
             flex-direction: column;
             gap: 2rem;
@@ -240,6 +237,12 @@ main{
                 .buttons{
                     justify-content: center;
                 }
+            }
+        }
+
+        .right-content{
+            span{
+                font-size: 0.925rem;
             }
         }
     }
