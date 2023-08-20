@@ -1,98 +1,102 @@
 
-// LEFT CONTENT
-const billvalue = document.querySelector("#bill");
-const peoplevalue = document.querySelector("#number");
 const inputFields = document.querySelectorAll('input[type="text"]');
-
-// BUTTON
-const five = document.querySelector(".five");
-const ten = document.querySelector(".ten");
-const fifteen = document.querySelector(".fifteen");
-const twentyfive = document.querySelector(".twenty-five");
-const fifty = document.querySelector(".fifty");
-const custom = document.querySelector(".custom");
-
-// RIGHT CONTENT
-
-const tipvalue = document.querySelector("#tip");
-const totalvalue = document.querySelector("#total");
 const reset = document.querySelector(".reset");
 
+const billvalue = document.querySelector("#bill");
+const peoplevalue = document.querySelector("#number");
+const tipvalue = document.querySelector("#tip");
+const totalvalue = document.querySelector("#total");
+const custom = document.querySelector(".custom");
+
 reset.onclick = function(){
-    const value = document.querySelectorAll("input");
+    const value = document.querySelectorAll(".total-value");
+
+    inputFields.forEach((input)=> {
+        input.value = '';
+    });
 
     value.forEach((values)=>{
-        values.value = '';
+        values.innerHTML = "$0.00";
     });
-}
-
-function removeTotal(){
-        tipvalue.value = null;
-        totalvalue.value = null;
-}
-
-function tip(number){
-
-    let percent = number * billvalue.value;
-    let tip =  percent / peoplevalue.value ;
-    let totalpay = (billvalue.value / peoplevalue.value) + tip;
-
-    tipvalue.value += "$" + tip.toFixed(2);
-    totalvalue.value += "$" + totalpay.toFixed(2);
-}
-
-function error(){
-    if(billvalue.value.length === 0 || peoplevalue.value.length === 0){
-        tipvalue.value = "$0.00";
-        totalvalue.value = "$0.00";
-    }
 }
 
 function validateInput(input) {
     // Use a regular expression to remove non-numeric characters
     input.value = input.value.replace(/[^0-9]/g, '');
-  }
-
-five.onclick = function(){
-    removeTotal();
-    let number = 5/100;
-    tip(number);
 }
 
-ten.onclick = function(){
-    removeTotal();
-    let number = 10/100;
-    tip(number);
+function emptyInput(){
+    tipvalue.innerHTML = "";
+    totalvalue.innerHTML = "";
 }
 
-fifteen.onclick = function(){
-    removeTotal();
-    let number = 15/100;
-    tip(number);
+function tip(number){
+
+    let billValue = parseFloat(billvalue.value);
+    let peopleValue = parseFloat(peoplevalue.value);
+   
+    let tip_per_person = Math.round((((billvalue.value * (number / 100)) / peoplevalue.value)) * 100) / 100
+    let total_per_person = Math.round((tip_per_person + (billvalue.value / peoplevalue.value)) * 100) / 100
+
+    if (isNaN(billValue) || isNaN(peopleValue) || billValue <= 0 || peopleValue <= 0) {
+        // Input validation: Check if values are empty or non-numeric
+        tipvalue.innerHTML = "$0.00";
+        totalvalue.innerHTML = "$0.00";
+    } else{
+        emptyInput()
+        tipvalue.innerHTML += "$" + tip_per_person.toFixed(2);
+        totalvalue.innerHTML += "$" + total_per_person.toFixed(2);
+    }
+
 }
 
-twentyfive.onclick = function(){
-    removeTotal();
-    let number = 25/100;
-    tip(number);
+// function customTip(custom){
+//     let tip_per_person = Math.round((((billvalue.value  * (custom.value / 100)) / peoplevalue.value)) * 100) / 100
+//     let total_per_person = Math.round((tip_per_person + (billvalue.value  / peoplevalue.value)) * 100) / 100
+
+//     // if (event.key === 'Enter' || custom.focus) {
+//     //     emptyInput()
+//     //     tipvalue.innerHTML += "$" + tip_per_person.toFixed(2);
+//     //     totalvalue.innerHTML += "$" + total_per_person.toFixed(2);
+//     // } else {
+//     //     emptyInput()
+//     // }
+//     emptyInput()
+//     tipvalue.innerHTML += "$" + tip_per_person.toFixed(2);
+//     totalvalue.innerHTML += "$" + total_per_person.toFixed(2);
+    
+// }
+
+function customTip() {
+
+    let billValue = parseFloat(billvalue.value);
+    let peopleValue = parseFloat(peoplevalue.value);
+    let customValue = parseFloat(custom.value);
+
+    if (isNaN(billValue) || isNaN(peopleValue) || isNaN(customValue) || billValue <= 0 || peopleValue <= 0) {
+        tipvalue.innerHTML = "$0.00";
+        totalvalue.innerHTML = "$0.00";
+    } else {
+        let tipPerPerson = Math.round(((billValue * (customValue / 100)) / peopleValue) * 100) / 100;
+        let totalPerPerson = Math.round((tipPerPerson + (billValue / peopleValue)) * 100) / 100;
+
+        // Update HTML elements
+        tipvalue.innerHTML = "$" + tipPerPerson.toFixed(2);
+        totalvalue.innerHTML = "$" + totalPerPerson.toFixed(2);
+    }
 }
 
-fifty.onclick = function(){
-    removeTotal();
-    let number = 50/100;
-    tip(number);
-}
+custom.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter' || custom.focus) {
+        customTip();
+    }
+});
 
-custom.onchange = function(){
-    removeTotal();
-    let number = custom.value/100;
-    tip(number);
-    error();
-}
 
 peoplevalue.addEventListener("input", ()=>{
-
+    const peoplevalue = document.querySelector("#number");
     const error = document.querySelector(".cant-zero");
+
     if(peoplevalue.value.length === 0){
         error.style.display = "block";
         peoplevalue.style.outline = "1.5px solid rgb(214, 131, 112)";
