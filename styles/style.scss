@@ -158,6 +158,7 @@ main{
             background: $very-dark-cyan;
             padding: 2rem 2rem 1rem 2rem;
             border-radius: 15px;
+            width: 350px;
 
             .right-content-container{
                 .tip-amount{
@@ -230,20 +231,23 @@ main{
         .container{
             flex-direction: column;
             gap: 2rem;
-        }
 
-        .left-content{
-            .tip-content{
-                .buttons{
-                    justify-content: center;
+            .left-content{
+                .tip-content{
+                    .buttons{
+                        justify-content: center;
+                    }
+                }
+            }
+    
+            .right-content{
+                width: 100%;
+                span{
+                    font-size: 0.925rem;
                 }
             }
         }
 
-        .right-content{
-            span{
-                font-size: 0.925rem;
-            }
-        }
+       
     }
 }
