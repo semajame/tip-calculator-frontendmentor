@@ -3,9 +3,8 @@ body {
   min-height: 100vh;
   font-family: "Space Mono", monospace;
   font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
   background-color: hsl(185, 41%, 84%);
 }
 
@@ -59,7 +58,7 @@ main .container .left-content .bill-content .bill-input:focus {
 main .container .left-content .tip-content .buttons {
   margin-top: 0.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 100px);
+  grid-template-columns: repeat(3, 30%);
   grid-template-rows: repeat(2, 40px);
   grid-gap: 15px;
 }
@@ -122,9 +121,8 @@ main .container .left-content .number-people-content .number-input::placeholder 
 }
 main .container .right-content {
   background: hsl(183, 100%, 15%);
-  padding: 3rem 2rem 1rem 2rem;
+  padding: 2rem 2rem 1rem 2rem;
   border-radius: 15px;
-  width: 380px;
 }
 main .container .right-content .right-content-container .tip-amount, main .container .right-content .right-content-container .total {
   display: flex;
@@ -138,12 +136,8 @@ main .container .right-content .right-content-container .tip-amount .person, mai
   color: hsl(184, 14%, 56%);
 }
 main .container .right-content .right-content-container .tip-amount #tip, main .container .right-content .right-content-container .total #tip, main .container .right-content .right-content-container .tip-amount #total, main .container .right-content .right-content-container .total #total {
-  background-color: transparent;
-  border: none;
-  outline: none;
   text-align: right;
   font-size: 2rem;
-  width: 200px;
   color: hsl(172, 67%, 45%);
 }
 main .container .right-content .right-content-container .tip-amount #tip::-moz-placeholder, main .container .right-content .right-content-container .total #tip::-moz-placeholder, main .container .right-content .right-content-container .tip-amount #total::-moz-placeholder, main .container .right-content .right-content-container .total #total::-moz-placeholder {
@@ -173,12 +167,21 @@ main .container .right-content .right-content-container .reset-container .reset:
   background-color: hsl(172, 67%, 45%);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 500px) {
+  body {
+    display: block;
+  }
+  main {
+    margin: 2rem 1rem;
+  }
   main .container {
     flex-direction: column;
     gap: 2rem;
   }
   main .left-content .tip-content .buttons {
     justify-content: center;
+  }
+  main .right-content span {
+    font-size: 0.925rem;
   }
 }/*# sourceMappingURL=style.css.map */
